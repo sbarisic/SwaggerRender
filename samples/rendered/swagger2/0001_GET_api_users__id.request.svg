@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg width="1200" role="img" height="450" viewBox="0 0 1200 450" xmlns="http://www.w3.org/2000/svg">
+  <title>GET /api/users/{id} — Request</title>
+  <rect x="1" y="1" width="1198" height="448" fill="#ffffff" stroke="#61affe" />
+  <rect x="2" y="2" width="1196" height="446" fill="#61affe" fill-opacity="0.09" />
+  <rect x="22" y="18" width="100" height="34" fill="#61affe" rx="4" />
+  <text x="34" y="41" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#ffffff" xml:space="preserve" font-weight="bold">GET</text>
+  <text x="138" y="42" font-family="Consolas, 'Liberation Mono', monospace" font-size="20" fill="#283443" xml:space="preserve" font-weight="bold">/api/users/{id}</text>
+  <text x="22" y="85" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#344150" xml:space="preserve" font-weight="bold">Dohvat korisnika</text>
+  <text x="22" y="131" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#344150" xml:space="preserve" font-weight="bold">Request</text>
+  <text x="22" y="162" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#344150" xml:space="preserve">Vraća korisnika i njegovu adresu.</text>
+  <rect x="2" y="182" width="1196" height="46" fill="#ffffff" fill-opacity="0.88" />
+  <line x1="2" x2="1198" y1="228" y2="228" stroke="#d5dfdd" />
+  <text x="22" y="211" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#344150" xml:space="preserve" font-weight="bold">Parameters</text>
+  <rect x="22" y="243" width="1156" height="38" fill="#e5efed" />
+  <text x="30" y="266" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Name</text>
+  <text x="284.32" y="266" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Type</text>
+  <text x="492.4" y="266" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">In</text>
+  <text x="608" y="266" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Required</text>
+  <text x="723.6" y="266" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Description</text>
+  <line x1="22" x2="1178" y1="281" y2="281" stroke="#d5dfdd" />
+  <rect x="22" y="281" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="304" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">id</text>
+  <text x="284.32" y="304" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">integer (int64)</text>
+  <text x="492.4" y="304" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">path</text>
+  <text x="608" y="304" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#be2732" xml:space="preserve">yes</text>
+  <text x="723.6" y="304" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Identifikator korisnika (nadjačava zajednički opis).</text>
+  <line x1="22" x2="1178" y1="319" y2="319" stroke="#d5dfdd" />
+  <rect x="2" y="337" width="1196" height="46" fill="#ffffff" fill-opacity="0.88" />
+  <line x1="2" x2="1198" y1="383" y2="383" stroke="#d5dfdd" />
+  <text x="22" y="366" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#344150" xml:space="preserve" font-weight="bold">Request body</text>
+  <text x="22" y="414" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#344150" xml:space="preserve">No request body.</text>
+</svg>

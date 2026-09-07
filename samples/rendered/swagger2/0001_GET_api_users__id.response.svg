@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg width="1200" role="img" height="1984" viewBox="0 0 1200 1984" xmlns="http://www.w3.org/2000/svg">
+  <title>GET /api/users/{id} — Response</title>
+  <rect x="1" y="1" width="1198" height="1982" fill="#ffffff" stroke="#61affe" />
+  <rect x="2" y="2" width="1196" height="1980" fill="#61affe" fill-opacity="0.09" />
+  <rect x="22" y="18" width="100" height="34" fill="#61affe" rx="4" />
+  <text x="34" y="41" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#ffffff" xml:space="preserve" font-weight="bold">GET</text>
+  <text x="138" y="42" font-family="Consolas, 'Liberation Mono', monospace" font-size="20" fill="#283443" xml:space="preserve" font-weight="bold">/api/users/{id}</text>
+  <text x="22" y="85" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#344150" xml:space="preserve" font-weight="bold">Dohvat korisnika</text>
+  <text x="22" y="131" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#344150" xml:space="preserve" font-weight="bold">Response</text>
+  <rect x="2" y="146" width="1196" height="46" fill="#ffffff" fill-opacity="0.88" />
+  <line x1="2" x2="1198" y1="192" y2="192" stroke="#d5dfdd" />
+  <text x="22" y="175" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#344150" xml:space="preserve" font-weight="bold">Responses</text>
+  <rect x="2" y="207" width="1196" height="44" fill="#ffffff" fill-opacity="0.88" />
+  <line x1="2" x2="1198" y1="251" y2="251" stroke="#d5dfdd" />
+  <text x="22" y="234" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#344150" xml:space="preserve" font-weight="bold">200</text>
+  <text x="22" y="282" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#344150" xml:space="preserve">Korisnik je pronađen.</text>
+  <text x="22" y="328" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#344150" xml:space="preserve" font-weight="bold">Response headers</text>
+  <rect x="22" y="343" width="1156" height="38" fill="#e5efed" />
+  <text x="30" y="366" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Property</text>
+  <text x="353.68" y="366" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Type</text>
+  <text x="584.88" y="366" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Required</text>
+  <text x="700.48" y="366" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Description</text>
+  <line x1="22" x2="1178" y1="381" y2="381" stroke="#d5dfdd" />
+  <rect x="22" y="381" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="404" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">X-Rate-Limit</text>
+  <text x="353.68" y="404" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">integer</text>
+  <text x="584.88" y="404" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <text x="700.48" y="404" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Preostali broj zahtjeva.</text>
+  <line x1="22" x2="1178" y1="419" y2="419" stroke="#d5dfdd" />
+  <text x="22" y="463" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#344150" xml:space="preserve" font-weight="bold">application/json</text>
+  <text x="22" y="501" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Example</text>
+  <rect x="22" y="516" width="1156" height="166" fill="#303030" rx="4" />
+  <text x="37" y="539" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">{</text>
+  <text x="37" y="559" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "id": 42,</text>
+  <text x="37" y="579" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "name": "Željko",</text>
+  <text x="37" y="599" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "address": {</text>
+  <text x="37" y="619" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">    "city": "Zagreb"</text>
+  <text x="37" y="639" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  }</text>
+  <text x="37" y="659" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">}</text>
+  <text x="22" y="722" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#344150" xml:space="preserve" font-weight="bold">Body properties</text>
+  <rect x="22" y="737" width="1156" height="38" fill="#e5efed" />
+  <text x="30" y="760" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Property</text>
+  <text x="353.68" y="760" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Type</text>
+  <text x="584.88" y="760" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Required</text>
+  <text x="700.48" y="760" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Description</text>
+  <line x1="22" x2="1178" y1="775" y2="775" stroke="#d5dfdd" />
+  <rect x="22" y="775" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="798" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">$</text>
+  <text x="353.68" y="798" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">object</text>
+  <text x="584.88" y="798" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">—</text>
+  <line x1="22" x2="1178" y1="813" y2="813" stroke="#d5dfdd" />
+  <text x="30" y="836" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">id</text>
+  <text x="353.68" y="836" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">integer</text>
+  <text x="584.88" y="836" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <text x="700.48" y="836" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Read only.</text>
+  <line x1="22" x2="1178" y1="851" y2="851" stroke="#d5dfdd" />
+  <rect x="22" y="851" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="874" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">name</text>
+  <text x="353.68" y="874" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="584.88" y="874" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#be2732" xml:space="preserve">yes</text>
+  <line x1="22" x2="1178" y1="889" y2="889" stroke="#d5dfdd" />
+  <text x="30" y="912" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">address</text>
+  <text x="353.68" y="912" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">object</text>
+  <text x="584.88" y="912" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <line x1="22" x2="1178" y1="927" y2="927" stroke="#d5dfdd" />
+  <rect x="22" y="927" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="950" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">address.city</text>
+  <text x="353.68" y="950" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="584.88" y="950" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <text x="700.48" y="950" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Default: Zagreb</text>
+  <line x1="22" x2="1178" y1="965" y2="965" stroke="#d5dfdd" />
+  <text x="30" y="988" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">address.postalCode</text>
+  <text x="353.68" y="988" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="584.88" y="988" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <line x1="22" x2="1178" y1="1003" y2="1003" stroke="#d5dfdd" />
+  <rect x="22" y="1003" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="1026" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">roles</text>
+  <text x="353.68" y="1026" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">array</text>
+  <text x="584.88" y="1026" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <line x1="22" x2="1178" y1="1041" y2="1041" stroke="#d5dfdd" />
+  <text x="30" y="1064" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">roles[]</text>
+  <text x="353.68" y="1064" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="584.88" y="1064" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">—</text>
+  <text x="700.48" y="1064" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Allowed: ["reader","editor"]</text>
+  <line x1="22" x2="1178" y1="1079" y2="1079" stroke="#d5dfdd" />
+  <text x="22" y="1123" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#344150" xml:space="preserve" font-weight="bold">application/vnd.example+json</text>
+  <text x="22" y="1161" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Generated example (representative JSON)</text>
+  <rect x="22" y="1176" width="1156" height="246" fill="#303030" rx="4" />
+  <text x="37" y="1199" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">{</text>
+  <text x="37" y="1219" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "id": 0,</text>
+  <text x="37" y="1239" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "name": "Željko",</text>
+  <text x="37" y="1259" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "address": {</text>
+  <text x="37" y="1279" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">    "city": "Zagreb",</text>
+  <text x="37" y="1299" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">    "postalCode": "string"</text>
+  <text x="37" y="1319" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  },</text>
+  <text x="37" y="1339" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "roles": [</text>
+  <text x="37" y="1359" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">    "reader"</text>
+  <text x="37" y="1379" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  ]</text>
+  <text x="37" y="1399" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">}</text>
+  <text x="22" y="1462" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#344150" xml:space="preserve" font-weight="bold">Body properties</text>
+  <rect x="22" y="1477" width="1156" height="38" fill="#e5efed" />
+  <text x="30" y="1500" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Property</text>
+  <text x="353.68" y="1500" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Type</text>
+  <text x="584.88" y="1500" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Required</text>
+  <text x="700.48" y="1500" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Description</text>
+  <line x1="22" x2="1178" y1="1515" y2="1515" stroke="#d5dfdd" />
+  <rect x="22" y="1515" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="1538" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">$</text>
+  <text x="353.68" y="1538" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">object</text>
+  <text x="584.88" y="1538" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">—</text>
+  <line x1="22" x2="1178" y1="1553" y2="1553" stroke="#d5dfdd" />
+  <text x="30" y="1576" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">id</text>
+  <text x="353.68" y="1576" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">integer</text>
+  <text x="584.88" y="1576" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <text x="700.48" y="1576" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Read only.</text>
+  <line x1="22" x2="1178" y1="1591" y2="1591" stroke="#d5dfdd" />
+  <rect x="22" y="1591" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="1614" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">name</text>
+  <text x="353.68" y="1614" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="584.88" y="1614" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#be2732" xml:space="preserve">yes</text>
+  <line x1="22" x2="1178" y1="1629" y2="1629" stroke="#d5dfdd" />
+  <text x="30" y="1652" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">address</text>
+  <text x="353.68" y="1652" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">object</text>
+  <text x="584.88" y="1652" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <line x1="22" x2="1178" y1="1667" y2="1667" stroke="#d5dfdd" />
+  <rect x="22" y="1667" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="1690" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">address.city</text>
+  <text x="353.68" y="1690" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="584.88" y="1690" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <text x="700.48" y="1690" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Default: Zagreb</text>
+  <line x1="22" x2="1178" y1="1705" y2="1705" stroke="#d5dfdd" />
+  <text x="30" y="1728" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">address.postalCode</text>
+  <text x="353.68" y="1728" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="584.88" y="1728" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <line x1="22" x2="1178" y1="1743" y2="1743" stroke="#d5dfdd" />
+  <rect x="22" y="1743" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="1766" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">roles</text>
+  <text x="353.68" y="1766" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">array</text>
+  <text x="584.88" y="1766" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <line x1="22" x2="1178" y1="1781" y2="1781" stroke="#d5dfdd" />
+  <text x="30" y="1804" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">roles[]</text>
+  <text x="353.68" y="1804" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="584.88" y="1804" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">—</text>
+  <text x="700.48" y="1804" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Allowed: ["reader","editor"]</text>
+  <line x1="22" x2="1178" y1="1819" y2="1819" stroke="#d5dfdd" />
+  <rect x="2" y="1837" width="1196" height="44" fill="#ffffff" fill-opacity="0.88" />
+  <line x1="2" x2="1198" y1="1881" y2="1881" stroke="#d5dfdd" />
+  <text x="22" y="1864" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#344150" xml:space="preserve" font-weight="bold">404</text>
+  <text x="22" y="1912" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#344150" xml:space="preserve">Korisnik nije pronađen.</text>
+  <text x="22" y="1948" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#344150" xml:space="preserve">No body content documented.</text>
+</svg>

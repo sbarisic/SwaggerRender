@@ -1,0 +1,44 @@
+{
+  "swagger": "2.0",
+  "info": { "title": "Korisnici API", "version": "1.0" },
+  "consumes": ["application/json"],
+  "produces": ["application/json", "application/vnd.example+json"],
+  "paths": {
+    "/api/users/{id}": {
+      "parameters": [{ "$ref": "#/parameters/UserId" }],
+      "get": {
+        "summary": "Dohvat korisnika",
+        "description": "Vraća korisnika i njegovu adresu.",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "type": "integer", "format": "int64", "description": "Identifikator korisnika (nadjačava zajednički opis)." }],
+        "responses": {
+          "200": {
+            "description": "Korisnik je pronađen.",
+            "headers": { "X-Rate-Limit": { "type": "integer", "description": "Preostali broj zahtjeva." } },
+            "schema": { "$ref": "#/definitions/User" },
+            "examples": { "application/json": { "id": 42, "name": "Željko", "address": { "city": "Zagreb" } } }
+          },
+          "404": { "$ref": "#/responses/NotFound" }
+        }
+      },
+      "put": {
+        "summary": "Izmjena korisnika",
+        "parameters": [{ "name": "body", "in": "body", "required": true, "description": "Novi podaci korisnika.", "schema": { "$ref": "#/definitions/User" } }],
+        "responses": { "204": { "description": "Podaci su spremljeni." }, "400": { "description": "Neispravan zahtjev." } }
+      }
+    }
+  },
+  "parameters": { "UserId": { "name": "id", "in": "path", "required": true, "type": "integer", "description": "Zajednički identifikator." } },
+  "responses": { "NotFound": { "description": "Korisnik nije pronađen." } },
+  "definitions": {
+    "User": {
+      "type": "object", "required": ["name"],
+      "properties": {
+        "id": { "type": "integer", "readOnly": true },
+        "name": { "type": "string", "example": "Željko" },
+        "address": { "$ref": "#/definitions/Address~1Contact~0Details" },
+        "roles": { "type": "array", "items": { "type": "string", "enum": ["reader", "editor"] } }
+      }
+    },
+    "Address/Contact~Details": { "type": "object", "properties": { "city": { "type": "string", "default": "Zagreb" }, "postalCode": { "type": "string" } } }
+  }
+}

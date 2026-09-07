@@ -1,0 +1,82 @@
+{
+  "openapi": "3.1.0",
+  "info": { "title": "Predodobrenje API", "version": "1.0" },
+  "paths": {
+    "/api/v{version}/preapproval/request": {
+      "parameters": [{ "name": "version", "in": "path", "required": true, "schema": { "type": "string", "default": "1" } }],
+      "post": {
+        "summary": "BTC / CashExpress preapproval request intake",
+        "description": "Metoda zaprima zahtjev za predodobrenje i vraća poruku o rezultatu validacije. Podržava slova č, ć, đ, š i ž te znakove <, > i &.",
+        "requestBody": {
+          "required": true,
+          "description": "Receive the preapproval announcement after barcode scan, QR scan, or manual entry.",
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/PreapprovalRequest" },
+              "examples": {
+                "barcode": { "summary": "Zahtjev očitan barkodom", "value": { "id": "REQ-001", "clientIban": "HR1210010051863000160", "amount": 120.5, "processingDate": "2026-07-24", "locationCode": "Zagreb", "user": "Operater", "description": "Zahtjev za predodobrenje", "currencyCode": 978 } },
+                "manual": { "$ref": "#/components/examples/ManualRequest" }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Uspješno zaprimljen zahtjev.",
+            "headers": { "X-Request-Id": { "description": "Identifikator zahtjeva", "schema": { "type": "string" } } },
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Result" } } }
+          },
+          "400": { "description": "Neispravni podaci.", "content": { "application/problem+json": { "schema": { "type": "object", "properties": { "title": { "type": "string", "example": "Validacija nije uspjela" }, "status": { "type": "integer", "enum": [400] } } } } } },
+          "default": { "description": "Neočekivana pogreška." }
+        }
+      }
+    },
+    "/api/v{version}/preapproval/requests/{requestId}/validation-history/with-a-deliberately-long-path-segment-to-demonstrate-wrapping": {
+      "get": {
+        "summary": "Povijest validacije",
+        "description": "This deliberately long description checks automatic wrapping when an endpoint contains detailed documentation. It remains readable inside the image, even when displayed at a narrower width. Every documented response is included below.",
+        "parameters": [
+          { "name": "version", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "requestId", "in": "path", "required": true, "description": "Identifikator prethodno zaprimljenog zahtjeva.", "schema": { "type": "string", "format": "uuid" } },
+          { "name": "includeDetails", "in": "query", "schema": { "type": "boolean", "default": false } }
+        ],
+        "responses": {
+          "200": { "description": "Povijest zahtjeva.", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Result" } } } } },
+          "404": { "description": "Zahtjev nije pronađen." }
+        }
+      }
+    }
+  },
+  "components": {
+    "examples": { "ManualRequest": { "summary": "Ručni unos", "value": { "id": "REQ-002", "amount": 75, "description": "Ručni unos — čćđšž" } } },
+    "schemas": {
+      "PreapprovalRequest": {
+        "type": "object",
+        "required": ["id", "clientIban", "amount", "currencyCode"],
+        "properties": {
+          "id": { "type": "string", "description": "Identifikator zahtjeva." },
+          "clientIban": { "type": "string", "description": "IBAN klijenta." },
+          "amount": { "type": "number", "format": "decimal", "description": "Iznos za predodobrenje." },
+          "coinAmount": { "type": "number" },
+          "approvalReferenceNumber": { "type": ["string", "null"] },
+          "processingDate": { "type": "string", "format": "date" },
+          "locationCode": { "type": "string" },
+          "bagBarcode": { "type": "string" },
+          "user": { "type": "string" },
+          "description": { "type": "string" },
+          "purposeCode": { "type": "string" },
+          "currencyCode": { "type": "integer", "enum": [978], "description": "ISO numeric currency code." },
+          "credentials": { "type": "string", "writeOnly": true, "description": "Only included in generated request examples." },
+          "auditId": { "type": "string", "readOnly": true },
+          "metadata": { "type": "object", "properties": { "channel": { "type": "string", "enum": ["barcode", "manual"] }, "labels": { "type": "array", "items": { "type": "string" } } } }
+        }
+      },
+      "Result": {
+        "allOf": [
+          { "type": "object", "required": ["id"], "properties": { "id": { "type": "string", "readOnly": true }, "internalSecret": { "type": "string", "writeOnly": true } } },
+          { "type": "object", "required": ["valid"], "properties": { "valid": { "type": "boolean" }, "message": { "type": "string", "example": "Zahtjev je prihvaćen." }, "details": { "oneOf": [{ "type": "string", "example": "OK" }, { "type": "object", "properties": { "reason": { "type": "string" } } }] } } }
+        ]
+      }
+    }
+  }
+}

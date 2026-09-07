@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg width="1200" role="img" height="569" viewBox="0 0 1200 569" xmlns="http://www.w3.org/2000/svg">
+  <title>GET /api/v{version}/preapproval/requests/{requestId}/validation-history/with-a-deliberately-long-path-segment-to-demonstrate-wrapping — Request</title>
+  <rect x="1" y="1" width="1198" height="567" fill="#ffffff" stroke="#61affe" />
+  <rect x="2" y="2" width="1196" height="565" fill="#61affe" fill-opacity="0.09" />
+  <rect x="22" y="18" width="100" height="34" fill="#61affe" rx="4" />
+  <text x="34" y="41" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#ffffff" xml:space="preserve" font-weight="bold">GET</text>
+  <text x="138" y="42" font-family="Consolas, 'Liberation Mono', monospace" font-size="20" fill="#283443" xml:space="preserve" font-weight="bold">/api/v{version}/preapproval/requests/{requestId}/validation-history/with-a-deliber</text>
+  <text x="138" y="70" font-family="Consolas, 'Liberation Mono', monospace" font-size="20" fill="#283443" xml:space="preserve" font-weight="bold">ately-long-path-segment-to-demonstrate-wrapping</text>
+  <text x="22" y="105" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#344150" xml:space="preserve" font-weight="bold">Povijest validacije</text>
+  <text x="22" y="151" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#344150" xml:space="preserve" font-weight="bold">Request</text>
+  <text x="22" y="182" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#344150" xml:space="preserve">This deliberately long description checks automatic wrapping when an endpoint contains detailed documentation. It remains readable</text>
+  <text x="22" y="205" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#344150" xml:space="preserve">inside the image, even when displayed at a narrower width. Every documented response is included below.</text>
+  <rect x="2" y="225" width="1196" height="46" fill="#ffffff" fill-opacity="0.88" />
+  <line x1="2" x2="1198" y1="271" y2="271" stroke="#d5dfdd" />
+  <text x="22" y="254" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#344150" xml:space="preserve" font-weight="bold">Parameters</text>
+  <rect x="22" y="286" width="1156" height="38" fill="#e5efed" />
+  <text x="30" y="309" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Name</text>
+  <text x="284.32" y="309" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Type</text>
+  <text x="492.4" y="309" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">In</text>
+  <text x="608" y="309" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Required</text>
+  <text x="723.6" y="309" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Description</text>
+  <line x1="22" x2="1178" y1="324" y2="324" stroke="#d5dfdd" />
+  <rect x="22" y="324" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="347" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">version</text>
+  <text x="284.32" y="347" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="492.4" y="347" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">path</text>
+  <text x="608" y="347" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#be2732" xml:space="preserve">yes</text>
+  <line x1="22" x2="1178" y1="362" y2="362" stroke="#d5dfdd" />
+  <text x="30" y="385" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">requestId</text>
+  <text x="284.32" y="385" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string (uuid)</text>
+  <text x="492.4" y="385" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">path</text>
+  <text x="608" y="385" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#be2732" xml:space="preserve">yes</text>
+  <text x="723.6" y="385" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Identifikator prethodno zaprimljenog zahtjeva.</text>
+  <line x1="22" x2="1178" y1="400" y2="400" stroke="#d5dfdd" />
+  <rect x="22" y="400" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="423" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">includeDetails</text>
+  <text x="284.32" y="423" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">boolean</text>
+  <text x="492.4" y="423" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">query</text>
+  <text x="608" y="423" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <text x="723.6" y="423" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Default: false</text>
+  <line x1="22" x2="1178" y1="438" y2="438" stroke="#d5dfdd" />
+  <rect x="2" y="456" width="1196" height="46" fill="#ffffff" fill-opacity="0.88" />
+  <line x1="2" x2="1198" y1="502" y2="502" stroke="#d5dfdd" />
+  <text x="22" y="485" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#344150" xml:space="preserve" font-weight="bold">Request body</text>
+  <text x="22" y="533" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#344150" xml:space="preserve">No request body.</text>
+</svg>

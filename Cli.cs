@@ -1,0 +1,84 @@
+using System.Globalization;
+using System.Text.Json;
+using System.Text.Json.Nodes;
+
+namespace SwaggerRender;
+
+internal static class Cli
+{
+    private const string Help = """
+        SwaggerRender — render Swagger 2.0 / OpenAPI 3.0–3.1 JSON to SVG images
+        Usage: dotnet run -- <swagger.json> [--output <directory>] [--width <pixels>]
+          --output  Output directory (default: rendered)
+          --width   Image width from 640 to 4096 pixels (default: 1200)
+          --help    Show this help
+        Writes a request SVG and a response SVG for every endpoint.
+        """;
+
+    public static int Run(string[] args)
+    {
+        try
+        {
+            if (args.Contains("--help", StringComparer.Ordinal)) { Console.WriteLine(Help); return 0; }
+            string? input = null;
+            var output = "rendered";
+            var width = 1200;
+            for (var i = 0; i < args.Length; i++)
+            {
+                switch (args[i])
+                {
+                    case "--output": output = Value(args, ref i); break;
+                    case "--width":
+                        if (!int.TryParse(Value(args, ref i), NumberStyles.None, CultureInfo.InvariantCulture, out width)
+                            || width < 640 || width > 4096)
+                            throw new ArgumentException("--width must be an integer from 640 to 4096.");
+                        break;
+                    default:
+                        if (args[i].StartsWith('-')) throw new ArgumentException($"Unknown option: {args[i]}");
+                        if (input is not null) throw new ArgumentException("Supply exactly one input JSON file.");
+                        input = args[i];
+                        break;
+                }
+            }
+            if (input is null) throw new ArgumentException("An input JSON file is required. Use --help for usage.");
+            var root = JsonNode.Parse(File.ReadAllText(input)) as JsonObject
+                ?? throw new ArgumentException("The input must contain a JSON object.");
+            var context = new DocumentContext(root);
+            var endpoints = new OpenApiReader(context).Read();
+            if (endpoints.Count == 0) context.Warn("No HTTP operations were found in paths.");
+            Directory.CreateDirectory(output);
+            var renderer = new SvgRenderer(new SchemaDocumentation(context), width);
+            for (var i = 0; i < endpoints.Count; i++)
+            {
+                var endpoint = endpoints[i];
+                var name = FileStem(i + 1, endpoint);
+                renderer.Request(endpoint).Save(Path.Combine(output, name + ".request.svg"));
+                renderer.Response(endpoint).Save(Path.Combine(output, name + ".response.svg"));
+            }
+            foreach (var warning in context.Warnings) Console.Error.WriteLine($"Warning: {warning}");
+            Console.WriteLine($"Rendered {endpoints.Count} endpoints ({endpoints.Count * 2} SVG images) to {Path.GetFullPath(output)}");
+            return 0;
+        }
+        catch (Exception error) when (error is ArgumentException or JsonException or IOException or UnauthorizedAccessException
+            or InvalidOperationException or NotSupportedException)
+        {
+            Console.Error.WriteLine($"Error: {error.Message}");
+            return 1;
+        }
+    }
+
+    private static string Value(string[] args, ref int index)
+    {
+        var option = args[index];
+        if (++index >= args.Length || args[index].StartsWith("--", StringComparison.Ordinal))
+            throw new ArgumentException($"Missing value for {option}.");
+        return args[index];
+    }
+
+    internal static string FileStem(int index, Endpoint endpoint)
+    {
+        var safe = new string(endpoint.Path.Select(c => char.IsAsciiLetterOrDigit(c) || c is '-' or '_' ? c : '_').ToArray());
+        if (safe.Length > 100) safe = safe[..100];
+        return $"{index:D4}_{endpoint.Method}_{safe.Trim('_')}";
+    }
+}
