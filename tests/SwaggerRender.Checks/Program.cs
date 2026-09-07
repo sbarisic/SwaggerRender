@@ -177,13 +177,90 @@ try
         var input = Path.Combine(repo, "samples", "openapi31.json");
         Equal(0, Cli.Run([input, "--output", output]));
         var files = Directory.GetFiles(output, "*.svg");
-        Equal(4, files.Length);
+        Equal(6, files.Length);
+        Equal(2, files.Count(file => file.EndsWith(".schema.svg", StringComparison.Ordinal)));
         var before = files.ToDictionary(file => file, File.ReadAllText);
         var unrelated = Path.Combine(output, "keep.txt");
         File.WriteAllText(unrelated, "keep");
         Equal(0, Cli.Run([input, "--output", output]));
         Equal("keep", File.ReadAllText(unrelated));
         foreach (var file in files) { Equal(before[file], File.ReadAllText(file)); Bounds(XDocument.Load(file)); }
+    });
+    Check("All named schemas export in declaration order for both formats", () =>
+    {
+        foreach (var swagger in new[] { true, false })
+        {
+            var collection = new JsonObject
+            {
+                ["Unused"] = Node("""{"type":"object","properties":{"value":{"type":"string"}}}"""),
+                ["Alias"] = new JsonObject { ["$ref"] = swagger ? "#/definitions/Unused" : "#/components/schemas/Unused" }
+            };
+            var root = swagger ? new JsonObject { ["swagger"] = "2.0", ["definitions"] = collection }
+                : new JsonObject { ["openapi"] = "3.1.0", ["components"] = new JsonObject { ["schemas"] = collection } };
+            var reader = new OpenApiReader(new DocumentContext(root));
+            Equal(0, reader.Read().Count);
+            var schemas = reader.ReadSchemas();
+            Equal("Unused,Alias", string.Join(',', schemas.Select(s => s.Name)));
+            var input = Path.Combine(temp, swagger ? "swagger-schemas.json" : "openapi-schemas.json");
+            var output = input + ".output";
+            File.WriteAllText(input, root.ToJsonString());
+            Equal(0, Cli.Run([input, "--output", output]));
+            Equal(2, Directory.GetFiles(output, "*.svg").Length);
+            var alias = XDocument.Load(Path.Combine(output, "0002_Alias.schema.svg"));
+            True(alias.Root!.Value.Contains("value"));
+            Bounds(alias);
+        }
+    });
+    Check("Standalone schema fields and examples include both access directions", () =>
+    {
+        var ctx = Context(File.ReadAllText(Path.Combine(repo, "samples", "schemas-only.json")));
+        var named = new OpenApiReader(ctx).ReadSchemas().Single(s => s.Name == "TransactionBookingDTO");
+        var doc = new SchemaDocumentation(ctx);
+        var fields = doc.Fields(named.Schema, request: null);
+        True(fields.Single(f => f.Name == "auditId").Description.Contains("Read only."));
+        True(fields.Single(f => f.Name == "authorizationCode").Description.Contains("Write only."));
+        True(fields.Any(f => f.Name == "specifications[].denomination" && f.Required == "yes"));
+        var example = (JsonObject)doc.Examples(new MediaBody("application/json", named.Schema, []), request: null)[0].Value!;
+        True(example.ContainsKey("auditId") && example.ContainsKey("authorizationCode"));
+        Bounds(new SvgRenderer(doc, 640).Schema(named));
+    });
+    Check("Schema-only sample CLI exports all supplied examples and neutral titles", () =>
+    {
+        var output = Path.Combine(temp, "schema-samples");
+        Equal(0, Cli.Run([Path.Combine(repo, "samples", "schemas-only.json"), "--output", output, "--width", "640"]));
+        Equal(3, Directory.GetFiles(output, "*.schema.svg").Length);
+        var image = XDocument.Load(Path.Combine(output, "0003_TransactionBookingDTOResponse.schema.svg"));
+        var text = image.Root!.Value;
+        True(text.Contains("Transakcija je prihvaćena.") && text.Contains("Podaci nisu ispravni."));
+        True(text.Contains("Schema — TransactionBookingDTOResponse"));
+        True(!text.Contains("Request body") && !text.Contains("Responses"));
+        Bounds(image);
+    });
+    Check("Standalone schemas preserve recursion, composition and unsupported-reference notes", () =>
+    {
+        var ctx = Context("""{"openapi":"3.1.0","components":{"schemas":{"Node":{"type":"object","properties":{"next":{"$ref":"#/components/schemas/Node"}}},"External":{"$ref":"other.json#/Model"},"Choice":{"oneOf":[{"type":"string"},{"type":"integer"}]},"Any":true,"None":false}}}""");
+        var schemas = new OpenApiReader(ctx).ReadSchemas();
+        var renderer = new SvgRenderer(new SchemaDocumentation(ctx), 640);
+        foreach (var schema in schemas) Bounds(renderer.Schema(schema));
+        True(renderer.Schema(schemas[0]).Root!.Value.Contains("omitted"));
+        True(renderer.Schema(schemas[1]).Root!.Value.Contains("External reference not loaded"));
+        True(renderer.Schema(schemas[2]).Root!.Value.Contains("oneOf: first of 2"));
+        True(renderer.Schema(schemas[4]).Root!.Value.Contains("not allowed"));
+        True(ctx.Warnings.Count > 0);
+    });
+    Check("Schema names stay unique and XML-safe after sanitizing", () =>
+    {
+        var names = new[] { "A/B", "A_B", "../", "Čćđšž<&>", new string('W', 160), new string('W', 161) };
+        var files = names.Select((name, i) => Cli.SchemaFileStem(i + 1, name)).ToArray();
+        Equal(names.Length, files.Distinct(StringComparer.OrdinalIgnoreCase).Count());
+        True(files.All(name => name.IndexOfAny(Path.GetInvalidFileNameChars()) < 0));
+        var renderer = new SvgRenderer(new SchemaDocumentation(Context("{}")), 640);
+        foreach (var name in names)
+        {
+            var image = XDocument.Parse(renderer.Schema(new NamedSchema(name, Node("""{"type":"string"}"""))).ToString());
+            True(image.Root!.Value.Contains(name));
+            Bounds(image);
+        }
     });
     Check("CLI reports malformed files, unsupported versions and write failures", () =>
     {

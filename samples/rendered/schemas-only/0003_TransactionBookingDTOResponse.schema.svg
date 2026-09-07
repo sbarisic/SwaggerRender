@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg width="1200" role="img" height="741" viewBox="0 0 1200 741" xmlns="http://www.w3.org/2000/svg">
+  <title>Schema — TransactionBookingDTOResponse</title>
+  <rect x="1" y="1" width="1198" height="739" fill="#ffffff" stroke="#8b929b" />
+  <rect x="2" y="2" width="1196" height="737" fill="#8b929b" fill-opacity="0.09" />
+  <text x="22" y="41" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Schema</text>
+  <rect x="2" y="56" width="1196" height="46" fill="#ffffff" fill-opacity="0.88" />
+  <line x1="2" x2="1198" y1="102" y2="102" stroke="#d5dfdd" />
+  <text x="22" y="85" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#344150" xml:space="preserve" font-weight="bold">TransactionBookingDTOResponse</text>
+  <rect x="2" y="117" width="1196" height="46" fill="#ffffff" fill-opacity="0.88" />
+  <line x1="2" x2="1198" y1="163" y2="163" stroke="#d5dfdd" />
+  <text x="22" y="146" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#344150" xml:space="preserve" font-weight="bold">Properties</text>
+  <rect x="22" y="178" width="1156" height="38" fill="#e5efed" />
+  <text x="30" y="201" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Property</text>
+  <text x="353.68" y="201" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Type</text>
+  <text x="584.88" y="201" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Required</text>
+  <text x="700.48" y="201" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Description</text>
+  <line x1="22" x2="1178" y1="216" y2="216" stroke="#d5dfdd" />
+  <rect x="22" y="216" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="239" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">$</text>
+  <text x="353.68" y="239" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">object</text>
+  <text x="584.88" y="239" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">—</text>
+  <line x1="22" x2="1178" y1="254" y2="254" stroke="#d5dfdd" />
+  <text x="30" y="277" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">accepted</text>
+  <text x="353.68" y="277" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">boolean</text>
+  <text x="584.88" y="277" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#be2732" xml:space="preserve">yes</text>
+  <line x1="22" x2="1178" y1="292" y2="292" stroke="#d5dfdd" />
+  <rect x="22" y="292" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="315" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">message</text>
+  <text x="353.68" y="315" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string | null</text>
+  <text x="584.88" y="315" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <line x1="22" x2="1178" y1="330" y2="330" stroke="#d5dfdd" />
+  <rect x="2" y="348" width="1196" height="46" fill="#ffffff" fill-opacity="0.88" />
+  <line x1="2" x2="1198" y1="394" y2="394" stroke="#d5dfdd" />
+  <text x="22" y="377" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#344150" xml:space="preserve" font-weight="bold">Examples</text>
+  <text x="22" y="432" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Schema example 1</text>
+  <rect x="22" y="447" width="1156" height="106" fill="#303030" rx="4" />
+  <text x="37" y="470" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">{</text>
+  <text x="37" y="490" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "accepted": true,</text>
+  <text x="37" y="510" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "message": "Transakcija je prihvaćena."</text>
+  <text x="37" y="530" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">}</text>
+  <text x="22" y="590" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Schema example 2</text>
+  <rect x="22" y="605" width="1156" height="106" fill="#303030" rx="4" />
+  <text x="37" y="628" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">{</text>
+  <text x="37" y="648" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "accepted": false,</text>
+  <text x="37" y="668" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "message": "Podaci nisu ispravni."</text>
+  <text x="37" y="688" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">}</text>
+</svg>

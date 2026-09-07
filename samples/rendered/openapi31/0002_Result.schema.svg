@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg width="1200" role="img" height="757" viewBox="0 0 1200 757" xmlns="http://www.w3.org/2000/svg">
+  <title>Schema — Result</title>
+  <rect x="1" y="1" width="1198" height="755" fill="#ffffff" stroke="#8b929b" />
+  <rect x="2" y="2" width="1196" height="753" fill="#8b929b" fill-opacity="0.09" />
+  <text x="22" y="41" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Schema</text>
+  <rect x="2" y="56" width="1196" height="46" fill="#ffffff" fill-opacity="0.88" />
+  <line x1="2" x2="1198" y1="102" y2="102" stroke="#d5dfdd" />
+  <text x="22" y="85" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#344150" xml:space="preserve" font-weight="bold">Result</text>
+  <rect x="2" y="117" width="1196" height="46" fill="#ffffff" fill-opacity="0.88" />
+  <line x1="2" x2="1198" y1="163" y2="163" stroke="#d5dfdd" />
+  <text x="22" y="146" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#344150" xml:space="preserve" font-weight="bold">Properties</text>
+  <rect x="22" y="178" width="1156" height="38" fill="#e5efed" />
+  <text x="30" y="201" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Property</text>
+  <text x="353.68" y="201" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Type</text>
+  <text x="584.88" y="201" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Required</text>
+  <text x="700.48" y="201" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Description</text>
+  <line x1="22" x2="1178" y1="216" y2="216" stroke="#d5dfdd" />
+  <rect x="22" y="216" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="239" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">$</text>
+  <text x="353.68" y="239" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">object</text>
+  <text x="584.88" y="239" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">—</text>
+  <line x1="22" x2="1178" y1="254" y2="254" stroke="#d5dfdd" />
+  <text x="30" y="277" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">id</text>
+  <text x="353.68" y="277" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="584.88" y="277" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#be2732" xml:space="preserve">yes</text>
+  <text x="700.48" y="277" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Read only.</text>
+  <line x1="22" x2="1178" y1="292" y2="292" stroke="#d5dfdd" />
+  <rect x="22" y="292" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="315" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">internalSecret</text>
+  <text x="353.68" y="315" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="584.88" y="315" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <text x="700.48" y="315" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Write only.</text>
+  <line x1="22" x2="1178" y1="330" y2="330" stroke="#d5dfdd" />
+  <text x="30" y="353" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">valid</text>
+  <text x="353.68" y="353" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">boolean</text>
+  <text x="584.88" y="353" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#be2732" xml:space="preserve">yes</text>
+  <line x1="22" x2="1178" y1="368" y2="368" stroke="#d5dfdd" />
+  <rect x="22" y="368" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="391" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">message</text>
+  <text x="353.68" y="391" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="584.88" y="391" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <line x1="22" x2="1178" y1="406" y2="406" stroke="#d5dfdd" />
+  <text x="30" y="429" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">details</text>
+  <text x="353.68" y="429" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="584.88" y="429" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <text x="700.48" y="429" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">oneOf: first of 2 alternatives shown.</text>
+  <line x1="22" x2="1178" y1="444" y2="444" stroke="#d5dfdd" />
+  <rect x="2" y="462" width="1196" height="46" fill="#ffffff" fill-opacity="0.88" />
+  <line x1="2" x2="1198" y1="508" y2="508" stroke="#d5dfdd" />
+  <text x="22" y="491" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#344150" xml:space="preserve" font-weight="bold">Examples</text>
+  <text x="22" y="546" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Generated example (representative JSON)</text>
+  <rect x="22" y="561" width="1156" height="166" fill="#303030" rx="4" />
+  <text x="37" y="584" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">{</text>
+  <text x="37" y="604" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "id": "string",</text>
+  <text x="37" y="624" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "internalSecret": "string",</text>
+  <text x="37" y="644" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "valid": true,</text>
+  <text x="37" y="664" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "message": "Zahtjev je prihvaćen.",</text>
+  <text x="37" y="684" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "details": "OK"</text>
+  <text x="37" y="704" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">}</text>
+</svg>

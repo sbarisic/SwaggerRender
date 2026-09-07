@@ -1,6 +1,6 @@
 # SwaggerRender
 
-A .NET 9 console application that reads a local Swagger/OpenAPI JSON file and writes two standalone SVG images per endpoint: one request image and one response image. Images use Swagger-like method colors, parameter tables, dark example blocks, and body property tables.
+A .NET 9 console application that reads a local Swagger/OpenAPI JSON file and writes two SVG images per endpoint (request and response), plus one standalone SVG per named schema. Images use Swagger-like method colors, parameter tables, dark example blocks, and property tables.
 
 No NuGet packages, graphics libraries, browser processes, or network access are needed to generate the images. Only the .NET SDK is needed to build and run the source. A built application requires the .NET 9 runtime.
 
@@ -17,6 +17,7 @@ Try the included examples:
 ```powershell
 dotnet run -- samples/openapi31.json --output samples/rendered/openapi31
 dotnet run -- samples/swagger2.json --output samples/rendered/swagger2
+dotnet run -- samples/schemas-only.json --output samples/rendered/schemas-only
 ```
 
 Options:
@@ -40,6 +41,10 @@ For the first sample endpoint, the output filenames are:
 ```
 
 The prefix follows endpoint order in the input document and prevents collisions between sanitized paths. Filenames use at most 100 characters from the path. Each response image contains every documented response, including `default` and responses without bodies. Each documented body media type and supplied inline example gets its own section.
+
+Every model in OpenAPI `components.schemas` or Swagger 2 `definitions` is also exported automatically, even if no endpoint references it. Schema files use their own declaration-order numbering and a `.schema.svg` suffix, for example `0001_SpecificationDTO.schema.svg`. Names are sanitized and shortened using the same rules as endpoint paths; the prefix prevents filename collisions. No additional command-line option is needed.
+
+Each schema image has a neutral gray heading with the model name, a description, a property table, and supplied or generated JSON examples. Nested references and composition use the same rules as endpoint bodies. Standalone schemas retain both read-only and write-only fields and label them in their descriptions. A document containing only named schemas is accepted without `paths`; it still needs a supported `openapi` or `swagger` version. Bare JSON Schema files are not accepted.
 
 Repeated runs replace matching filenames and preserve other files. If endpoints are removed or reordered, older images can remain; use a fresh output directory when you need an exact export. A write failure can leave earlier images from that run in place.
 
@@ -69,7 +74,7 @@ Expansion stops at eight schema levels and adds a visible omission marker. Unsup
 
 This is a documentation renderer, not a complete OpenAPI or JSON Schema validator. It does not implement schema dialect/resource resolution through `$id`, discriminator dispatch, validation of composed constraints, callbacks, webhooks, security flows, links, or general vendor extensions. Keywords such as `not`, conditionals, dynamic references, tuple schemas, and pattern properties are summarized with warnings. YAML, PNG export, and Word document generation are outside this version.
 
-Invalid JSON, unsupported document versions, missing `paths`, invalid CLI options, and file access failures return exit code `1`. Successful rendering returns `0`; nonfatal documentation warnings go to standard error.
+Invalid JSON, unsupported document versions, documents lacking both `paths` and named schemas, malformed schema collections, invalid CLI options, and file access failures return exit code `1`. Successful rendering returns `0`; nonfatal documentation warnings go to standard error.
 
 ## Build and verify
 

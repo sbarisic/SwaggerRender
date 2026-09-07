@@ -8,6 +8,17 @@ namespace SwaggerRender;
 
 internal sealed class SvgRenderer(SchemaDocumentation schemas, int width)
 {
+    public XDocument Schema(NamedSchema schema)
+    {
+        var canvas = new SvgCanvas(width, schema.Name);
+        canvas.Paragraph(schemas.Description(schema.Schema));
+        canvas.Section("Properties");
+        Properties(canvas, schemas.Fields(schema.Schema, request: null));
+        canvas.Section("Examples");
+        Examples(canvas, new MediaBody("application/json", schema.Schema, []), request: null);
+        return canvas.Finish();
+    }
+
     public XDocument Request(Endpoint endpoint)
     {
         var canvas = new SvgCanvas(width, endpoint, "Request");
@@ -55,19 +66,24 @@ internal sealed class SvgRenderer(SchemaDocumentation schemas, int width)
         foreach (var body in bodies)
         {
             canvas.Label(body.MediaType);
-            foreach (var example in schemas.Examples(body, request))
-            {
-                canvas.Label(example.Name, small: true);
-                canvas.Code(example.Value?.ToJsonString(new JsonSerializerOptions
-                {
-                    WriteIndented = true,
-                    Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
-                }) ?? "null");
-            }
+            Examples(canvas, body, request);
             canvas.Label("Body properties");
             var fields = schemas.Fields(body.Schema, request);
             if (fields.Count == 0) canvas.Paragraph("No schema documented.");
             else Properties(canvas, fields);
+        }
+    }
+
+    private void Examples(SvgCanvas canvas, MediaBody body, bool? request)
+    {
+        foreach (var example in schemas.Examples(body, request))
+        {
+            canvas.Label(example.Name, small: true);
+            canvas.Code(example.Value?.ToJsonString(new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+            }) ?? "null");
         }
     }
 
@@ -88,20 +104,31 @@ internal sealed class SvgCanvas
     private const double TextSize = 16;
     private double InnerWidth => width - 2 * Margin;
 
-    public SvgCanvas(int width, Endpoint endpoint, string section)
+    private SvgCanvas(int width, string title, string color)
     {
         this.width = width;
-        color = endpoint.Method switch
-        {
-            "GET" => "#61affe", "POST" => "#49cc90", "PUT" => "#fca130", "DELETE" => "#f93e3e",
-            "PATCH" => "#50e3c2", "HEAD" => "#9012fe", "OPTIONS" => "#0d5aa7", _ => "#777777"
-        };
+        this.color = color;
         root = new XElement(Svg + "svg", new XAttribute("width", width), new XAttribute("role", "img"),
-            new XElement(Svg + "title", Clean($"{endpoint.Method} {endpoint.Path} — {section}")));
+            new XElement(Svg + "title", Clean(title)));
         background = Rect(1, 1, width - 2, 1, "#ffffff", stroke: color);
         root.Add(background);
         root.Add(Rect(2, 2, width - 4, 1, color, opacity: 0.09));
         y = 18;
+    }
+
+    public SvgCanvas(int width, string schemaName) : this(width, $"Schema — {schemaName}", "#8b929b")
+    {
+        Label("Schema", small: true);
+        Section(schemaName);
+    }
+
+    public SvgCanvas(int width, Endpoint endpoint, string section)
+        : this(width, $"{endpoint.Method} {endpoint.Path} — {section}", endpoint.Method switch
+        {
+            "GET" => "#61affe", "POST" => "#49cc90", "PUT" => "#fca130", "DELETE" => "#f93e3e",
+            "PATCH" => "#50e3c2", "HEAD" => "#9012fe", "OPTIONS" => "#0d5aa7", _ => "#777777"
+        })
+    {
         root.Add(Rect(Margin, y, 100, 34, color, radius: 4));
         Text(endpoint.Method, Margin + 12, y + 23, 17, "#ffffff", bold: true);
         var paths = Wrap(endpoint.Path, InnerWidth - 116, 20, mono: true);

@@ -1,0 +1,43 @@
+{
+  "openapi": "3.1.0",
+  "info": { "title": "Booking models", "version": "1.0" },
+  "components": {
+    "schemas": {
+      "SpecificationDTO": {
+        "type": "object",
+        "description": "Specifikacija apoena i broja novčanica.",
+        "required": ["denominationType", "denomination"],
+        "properties": {
+          "denominationType": { "type": "number", "format": "double", "description": "Vrsta apoena." },
+          "denomination": { "type": "number", "format": "double", "description": "Vrijednost apoena." },
+          "appropriateNumber": { "type": "number", "format": "double" },
+          "unappropriateNumber": { "type": "number", "format": "double" },
+          "damagedNumber": { "type": "number", "format": "double" }
+        }
+      },
+      "TransactionBookingDTO": {
+        "type": "object",
+        "description": "Podaci za knjiženje transakcije.",
+        "required": ["reference", "specifications"],
+        "properties": {
+          "reference": { "type": "string", "description": "Referenca transakcije." },
+          "auditId": { "type": "string", "readOnly": true, "description": "Identifikator koji dodjeljuje poslužitelj." },
+          "authorizationCode": { "type": "string", "writeOnly": true, "description": "Kod za autorizaciju zahtjeva." },
+          "specifications": { "type": "array", "items": { "$ref": "#/components/schemas/SpecificationDTO" } }
+        }
+      },
+      "TransactionBookingDTOResponse": {
+        "type": "object",
+        "required": ["accepted"],
+        "properties": {
+          "accepted": { "type": "boolean" },
+          "message": { "type": ["string", "null"] }
+        },
+        "examples": [
+          { "accepted": true, "message": "Transakcija je prihvaćena." },
+          { "accepted": false, "message": "Podaci nisu ispravni." }
+        ]
+      }
+    }
+  }
+}

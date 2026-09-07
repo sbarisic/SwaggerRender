@@ -100,16 +100,22 @@ internal sealed class SchemaDocumentation(DocumentContext context)
         return types;
     }
 
-    private static bool Excluded(JsonNode? schema, bool request) => schema.Flag(request ? "readOnly" : "writeOnly");
+    // null selects a standalone schema, with no request/response field filtering.
+    private static bool Excluded(JsonNode? schema, bool? request) => request switch
+    {
+        true => schema.Flag("readOnly"),
+        false => schema.Flag("writeOnly"),
+        null => false
+    };
 
-    public List<Field> Fields(JsonNode? schema, bool request)
+    public List<Field> Fields(JsonNode? schema, bool? request)
     {
         var fields = new List<Field>();
         if (schema is not null) Visit(schema, "$", "—", request, 0, fields);
         return fields;
     }
 
-    private void Visit(JsonNode? raw, string path, string required, bool request, int depth, List<Field> fields)
+    private void Visit(JsonNode? raw, string path, string required, bool? request, int depth, List<Field> fields)
     {
         if (depth >= MaxDepth)
         {
@@ -128,7 +134,7 @@ internal sealed class SchemaDocumentation(DocumentContext context)
         if (schema.Get("additionalProperties") is JsonObject additional) Visit(additional, path + ".*", "no", request, depth + 1, fields);
     }
 
-    public List<BodyExample> Examples(MediaBody media, bool request)
+    public List<BodyExample> Examples(MediaBody media, bool? request)
     {
         if (media.Examples.Count > 0) return media.Examples;
         var schema = Expand(media.Schema);
@@ -141,7 +147,7 @@ internal sealed class SchemaDocumentation(DocumentContext context)
         return [new BodyExample("Generated example (representative JSON)", Generate(media.Schema, request, 0))];
     }
 
-    private JsonNode? Generate(JsonNode? raw, bool request, int depth)
+    private JsonNode? Generate(JsonNode? raw, bool? request, int depth)
     {
         if (depth >= MaxDepth) return JsonValue.Create("[Nested/recursive details omitted at depth limit (8)]");
         var node = Expand(raw);

@@ -13,6 +13,7 @@ internal static class Cli
           --width   Image width from 640 to 4096 pixels (default: 1200)
           --help    Show this help
         Writes a request SVG and a response SVG for every endpoint.
+        Also writes one .schema.svg image for each named schema.
         """;
 
     public static int Run(string[] args)
@@ -44,8 +45,10 @@ internal static class Cli
             var root = JsonNode.Parse(File.ReadAllText(input)) as JsonObject
                 ?? throw new ArgumentException("The input must contain a JSON object.");
             var context = new DocumentContext(root);
-            var endpoints = new OpenApiReader(context).Read();
-            if (endpoints.Count == 0) context.Warn("No HTTP operations were found in paths.");
+            var reader = new OpenApiReader(context);
+            var endpoints = reader.Read();
+            var namedSchemas = reader.ReadSchemas();
+            if (endpoints.Count == 0 && namedSchemas.Count == 0) context.Warn("No HTTP operations or named schemas were found.");
             Directory.CreateDirectory(output);
             var renderer = new SvgRenderer(new SchemaDocumentation(context), width);
             for (var i = 0; i < endpoints.Count; i++)
@@ -55,8 +58,13 @@ internal static class Cli
                 renderer.Request(endpoint).Save(Path.Combine(output, name + ".request.svg"));
                 renderer.Response(endpoint).Save(Path.Combine(output, name + ".response.svg"));
             }
+            for (var i = 0; i < namedSchemas.Count; i++)
+            {
+                var schema = namedSchemas[i];
+                renderer.Schema(schema).Save(Path.Combine(output, SchemaFileStem(i + 1, schema.Name) + ".schema.svg"));
+            }
             foreach (var warning in context.Warnings) Console.Error.WriteLine($"Warning: {warning}");
-            Console.WriteLine($"Rendered {endpoints.Count} endpoints ({endpoints.Count * 2} SVG images) to {Path.GetFullPath(output)}");
+            Console.WriteLine($"Rendered {endpoints.Count} endpoints and {namedSchemas.Count} schemas ({endpoints.Count * 2 + namedSchemas.Count} SVG images) to {Path.GetFullPath(output)}");
             return 0;
         }
         catch (Exception error) when (error is ArgumentException or JsonException or IOException or UnauthorizedAccessException
@@ -75,10 +83,14 @@ internal static class Cli
         return args[index];
     }
 
-    internal static string FileStem(int index, Endpoint endpoint)
+    internal static string FileStem(int index, Endpoint endpoint) => $"{index:D4}_{endpoint.Method}_{SafeName(endpoint.Path)}";
+
+    internal static string SchemaFileStem(int index, string name) => $"{index:D4}_{SafeName(name)}";
+
+    private static string SafeName(string name)
     {
-        var safe = new string(endpoint.Path.Select(c => char.IsAsciiLetterOrDigit(c) || c is '-' or '_' ? c : '_').ToArray());
+        var safe = new string(name.Select(c => char.IsAsciiLetterOrDigit(c) || c is '-' or '_' ? c : '_').ToArray());
         if (safe.Length > 100) safe = safe[..100];
-        return $"{index:D4}_{endpoint.Method}_{safe.Trim('_')}";
+        return safe.Trim('_');
     }
 }

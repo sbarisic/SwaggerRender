@@ -11,11 +11,12 @@ internal sealed class OpenApiReader(DocumentContext context)
 
     public List<Endpoint> Read()
     {
-        var version = context.Root.Get("openapi").Text();
-        swagger2 = context.Root.Get("swagger").Text() == "2.0";
-        if (!swagger2 && !version.StartsWith("3.0.", StringComparison.Ordinal) && !version.StartsWith("3.1.", StringComparison.Ordinal))
-            throw new ArgumentException("Unsupported document version. Expected swagger: 2.0 or openapi: 3.0.x / 3.1.x.");
-        if (context.Root["paths"] is not JsonObject paths) throw new ArgumentException("The document must contain a paths object.");
+        ValidateVersion();
+        if (context.Root["paths"] is not JsonObject paths)
+        {
+            if (!context.Root.ContainsKey("paths") && ReadSchemas().Count > 0) return [];
+            throw new ArgumentException("The document must contain a paths object or named schemas.");
+        }
         var endpoints = new List<Endpoint>();
         foreach (var path in paths)
         {
@@ -40,6 +41,23 @@ internal sealed class OpenApiReader(DocumentContext context)
             if (item.Get("x-render-note") is not null) context.Warn($"Path {path.Key}: {item.Get("x-render-note").Text()}");
         }
         return endpoints;
+    }
+
+    public List<NamedSchema> ReadSchemas()
+    {
+        ValidateVersion();
+        var container = swagger2 ? context.Root["definitions"] : context.Root.Get("components").Get("schemas");
+        if (container is null) return [];
+        if (container is not JsonObject) throw new ArgumentException("The named schemas collection must be an object.");
+        return container.Members().Select(pair => new NamedSchema(pair.Key, pair.Value)).ToList();
+    }
+
+    private void ValidateVersion()
+    {
+        var version = context.Root.Get("openapi").Text();
+        swagger2 = context.Root.Get("swagger").Text() == "2.0";
+        if (!swagger2 && !version.StartsWith("3.0.", StringComparison.Ordinal) && !version.StartsWith("3.1.", StringComparison.Ordinal))
+            throw new ArgumentException("Unsupported document version. Expected swagger: 2.0 or openapi: 3.0.x / 3.1.x.");
     }
 
     private List<JsonNode?> MergeParameters(JsonNode? inherited, JsonNode? own)
