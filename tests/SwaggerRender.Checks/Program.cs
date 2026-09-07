@@ -262,6 +262,89 @@ try
             Bounds(image);
         }
     });
+    Check("Split requests separate examples and properties without stretching or losing context", () =>
+    {
+        var ctx = Context(File.ReadAllText(Path.Combine(repo, "samples", "openapi31.json")));
+        var endpoint = new OpenApiReader(ctx).Read()[0];
+        var docs = new SchemaDocumentation(ctx);
+        var sections = new SvgSectionRenderer(docs, 1200).Request(endpoint).ToList();
+        Equal("overview,body-01.example-01,body-01.example-02,body-01.properties", string.Join(',', sections.Select(s => s.Name)));
+        True(sections[0].Image.Root!.Value.Contains("Parameters"));
+        True(!sections[0].Image.Root!.Value.Contains("REQ-001"));
+        True(sections[1].Image.Root!.Value.Contains("REQ-001") && !sections[1].Image.Root!.Value.Contains("REQ-002"));
+        True(sections[2].Image.Root!.Value.Contains("REQ-002"));
+        True(!sections[1].Image.Root!.Value.Contains("Body properties"));
+        True(sections[3].Image.Root!.Value.Contains("metadata.channel"));
+        True(!sections[3].Image.Root!.Value.Contains("REQ-001"));
+        var wholeHeight = double.Parse(new SvgRenderer(docs, 1200).Request(endpoint).Root!.Attribute("height")!.Value, CultureInfo.InvariantCulture);
+        foreach (var section in sections)
+        {
+            Bounds(section.Image);
+            True(section.Image.Root!.Value.Contains(endpoint.Path));
+            True(double.Parse(section.Image.Root.Attribute("height")!.Value, CultureInfo.InvariantCulture) < wholeHeight);
+        }
+    });
+    Check("Split responses retain all statuses, headers, media types and example values", () =>
+    {
+        var schema = Node("""{"type":"object","properties":{"result":{"type":"string"}}}""");
+        var endpoint = Endpoint("/responses", "") with
+        {
+            Responses = [
+                new ApiResponse("200", "Accepted", [new Field("X-Trace", "string", "no", "Trace header")], [
+                    new MediaBody("application/json", schema, [new BodyExample("first", JsonValue.Create("FIRST")), new BodyExample("second", null)]),
+                    new MediaBody("application/vnd.example+json", schema, [new BodyExample("third", JsonValue.Create("THIRD"))])]),
+                new ApiResponse("400", "Invalid request", [], []),
+                new ApiResponse("default", "Unexpected failure", [], [])
+            ]
+        };
+        var sections = new SvgSectionRenderer(new SchemaDocumentation(Context("{}")), 640).Response(endpoint).ToList();
+        Equal(7, sections.Count);
+        var overview = sections[0].Image.Root!.Value;
+        True(overview.Contains("200") && overview.Contains("400") && overview.Contains("default"));
+        True(overview.Contains("Unexpected failure") && !overview.Contains("FIRST"));
+        True(sections.Single(s => s.Name.EndsWith("headers", StringComparison.Ordinal)).Image.Root!.Value.Contains("X-Trace"));
+        True(sections.Single(s => s.Name == "response-01.body-01.example-01").Image.Root!.Value.Contains("FIRST"));
+        True(sections.Single(s => s.Name == "response-01.body-01.example-02").Image.Root!.Value.Contains("null"));
+        var third = sections.Single(s => s.Name == "response-01.body-02.example-01").Image.Root!.Value;
+        True(third.Contains("THIRD") && third.Contains("application/vnd.example+json"));
+        foreach (var section in sections) Bounds(section.Image);
+        var empty = new SvgSectionRenderer(new SchemaDocumentation(Context("{}")), 640).Response(Endpoint("/empty", "")).Single();
+        True(empty.Image.Root!.Value.Contains("No responses documented."));
+    });
+    Check("Split schemas separate the property table from all examples and retain access flags", () =>
+    {
+        var ctx = Context(File.ReadAllText(Path.Combine(repo, "samples", "schemas-only.json")));
+        var named = new OpenApiReader(ctx).ReadSchemas();
+        var renderer = new SvgSectionRenderer(new SchemaDocumentation(ctx), 640);
+        var booking = renderer.Schema(named[1]).ToList();
+        Equal(2, booking.Count);
+        var properties = booking.Single(s => s.Name == "properties").Image.Root!.Value;
+        True(properties.Contains("Read only.") && properties.Contains("Write only."));
+        True(!properties.Contains("Generated example"));
+        var response = renderer.Schema(named[2]).ToList();
+        Equal("properties,example-01,example-02", string.Join(',', response.Select(s => s.Name)));
+        True(response[1].Image.Root!.Value.Contains("Transakcija je prihvaćena."));
+        True(response[2].Image.Root!.Value.Contains("Podaci nisu ispravni."));
+        foreach (var section in booking.Concat(response)) Bounds(section.Image);
+    });
+    Check("Split CLI writes ordered unique images and preserves existing files on rerun", () =>
+    {
+        var output = Path.Combine(temp, "split");
+        var input = Path.Combine(repo, "samples", "openapi31.json");
+        Equal(0, Cli.Run([input, "--output", output, "--split-sections"]));
+        var files = Directory.GetFiles(output, "*.svg");
+        Equal(18, files.Length);
+        True(File.Exists(Path.Combine(output, "0001_POST_api_v_version__preapproval_request.request.01.overview.svg")));
+        True(File.Exists(Path.Combine(output, "0001_PreapprovalRequest.schema.01.properties.svg")));
+        True(!File.Exists(Path.Combine(output, "0001_PreapprovalRequest.schema.svg")));
+        var before = files.ToDictionary(file => file, File.ReadAllText);
+        var keep = Path.Combine(output, "keep.svg");
+        File.WriteAllText(keep, "Unrelated content");
+        Equal(0, Cli.Run([input, "--split-sections", "--output", output]));
+        Equal("Unrelated content", File.ReadAllText(keep));
+        foreach (var file in files) { Equal(before[file], File.ReadAllText(file)); Bounds(XDocument.Load(file)); }
+        Equal(0, Cli.Run([Path.Combine(repo, "samples", "swagger2.json"), "--split-sections", "--output", Path.Combine(temp, "swagger-split")]));
+    });
     Check("CLI reports malformed files, unsupported versions and write failures", () =>
     {
         Equal(0, Cli.Run(["--help"]));

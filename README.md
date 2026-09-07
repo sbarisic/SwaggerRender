@@ -27,6 +27,7 @@ Options:
 | `swagger.json` | Required local JSON input file; quote paths containing spaces. |
 | `--output <directory>` | Output directory. Default: `rendered`, relative to the current directory. |
 | `--width <pixels>` | Image width, from 640 to 4096 pixels. Default: 1200. |
+| `--split-sections` | Write each logical section as a separate SVG instead of the combined request, response, and schema images. |
 | `--help` | Show usage. |
 
 The project targets `net9.0`; `global.json` selects an installed .NET 9 SDK. It does not require the SDK version used during development.
@@ -48,9 +49,45 @@ Each schema image has a neutral gray heading with the model name, a description,
 
 Repeated runs replace matching filenames and preserve other files. If endpoints are removed or reordered, older images can remain; use a fresh output directory when you need an exact export. A write failure can leave earlier images from that run in place.
 
-Text and JSON wrap inside the image. Images grow vertically to fit their contents; large schemas produce tall images. There is no pagination. The SVGs contain ordinary text and shapes, with inline styles and no linked assets, scripts, or embedded HTML. Text uses local Arial/Helvetica and Consolas/monospace font fallbacks at their natural proportions. Width estimates are used only for wrapping, with some spare room for font substitution; exact glyph widths depend on the viewer's installed fonts.
+Text and JSON wrap inside the image. Images grow vertically to fit their contents; large schemas produce tall images. Use section splitting below to keep examples and tables in separate images. Individual sections are not paginated. The SVGs contain ordinary text and shapes, with inline styles and no linked assets, scripts, or embedded HTML. Text uses local Arial/Helvetica and Consolas/monospace font fallbacks at their natural proportions. Width estimates are used only for wrapping, with some spare room for font substitution; exact glyph widths depend on the viewer's installed fonts.
 
 Generated sample images are included under `samples/rendered`. Open the SVGs in an SVG-capable viewer. Word generation and Word compatibility testing are deferred.
+
+## Split images for documents
+
+To insert smaller pieces into a document without shrinking a whole endpoint image, use:
+
+```powershell
+dotnet run -- swagger.json --output rendered-sections --split-sections
+```
+
+The images keep their normal font sizes. Each piece repeats the endpoint method/path or schema name, plus the relevant status code and media type. Sections are laid out independently, so text and table rows are not cropped.
+
+| Source | Separate images |
+| --- | --- |
+| Request | Overview with description, parameters, and body metadata; each body example; each media type's property table. |
+| Responses | Compact table of all status codes and descriptions, including responses without bodies; headers per response where present; each body example; each media type's property table. |
+| Named schema | Property table with description; each supplied or generated example. |
+
+For example, a request with two JSON examples produces:
+
+```text
+0001_POST_api_v_version__preapproval_request.request.01.overview.svg
+0001_POST_api_v_version__preapproval_request.request.02.body-01.example-01.svg
+0001_POST_api_v_version__preapproval_request.request.03.body-01.example-02.svg
+0001_POST_api_v_version__preapproval_request.request.04.body-01.properties.svg
+```
+
+Response filenames use `response-01`, `response-02`, etc. in declaration order, with the actual status code shown inside the image. Media types and examples also use declaration-order indexes so similarly named items cannot collide. A split schema starts with a filename such as `0001_SpecificationDTO.schema.01.properties.svg`.
+
+Without `--split-sections`, output remains combined as before. Split mode writes only the section images; it does not delete existing combined files. Use a separate output directory to keep the two exports apart. A single very large table or example can still make a tall section image.
+
+Included split examples are under `samples/rendered/sections`. Regenerate them with:
+
+```powershell
+dotnet run -- samples/openapi31.json --output samples/rendered/sections/openapi31 --split-sections
+dotnet run -- samples/schemas-only.json --output samples/rendered/sections/schemas-only --split-sections
+```
 
 ## Supported input
 

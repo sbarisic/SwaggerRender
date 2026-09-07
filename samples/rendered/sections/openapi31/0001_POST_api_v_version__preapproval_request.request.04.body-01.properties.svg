@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg width="1200" role="img" height="1040" viewBox="0 0 1200 1040" xmlns="http://www.w3.org/2000/svg">
+  <title>POST /api/v{version}/preapproval/request — Request body · required</title>
+  <rect x="1" y="1" width="1198" height="1038" fill="#ffffff" stroke="#49cc90" />
+  <rect x="2" y="2" width="1196" height="1036" fill="#49cc90" fill-opacity="0.09" />
+  <rect x="22" y="18" width="100" height="34" fill="#49cc90" rx="4" />
+  <text x="34" y="41" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#ffffff" xml:space="preserve" font-weight="bold">POST</text>
+  <text x="138" y="42" font-family="Consolas, 'Liberation Mono', monospace" font-size="20" fill="#283443" xml:space="preserve" font-weight="bold">/api/v{version}/preapproval/request</text>
+  <text x="22" y="85" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#344150" xml:space="preserve" font-weight="bold">BTC / CashExpress preapproval request intake</text>
+  <text x="22" y="131" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#344150" xml:space="preserve" font-weight="bold">Request body · required</text>
+  <text x="22" y="162" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#344150" xml:space="preserve">Receive the preapproval announcement after barcode scan, QR scan, or manual entry.</text>
+  <text x="22" y="208" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#344150" xml:space="preserve" font-weight="bold">application/json</text>
+  <rect x="2" y="223" width="1196" height="46" fill="#ffffff" fill-opacity="0.88" />
+  <line x1="2" x2="1198" y1="269" y2="269" stroke="#d5dfdd" />
+  <text x="22" y="252" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#344150" xml:space="preserve" font-weight="bold">Body properties</text>
+  <rect x="22" y="284" width="1156" height="38" fill="#e5efed" />
+  <text x="30" y="307" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Property</text>
+  <text x="353.68" y="307" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Type</text>
+  <text x="584.88" y="307" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Required</text>
+  <text x="700.48" y="307" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Description</text>
+  <line x1="22" x2="1178" y1="322" y2="322" stroke="#d5dfdd" />
+  <rect x="22" y="322" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="345" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">$</text>
+  <text x="353.68" y="345" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">object</text>
+  <text x="584.88" y="345" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">—</text>
+  <line x1="22" x2="1178" y1="360" y2="360" stroke="#d5dfdd" />
+  <text x="30" y="383" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">id</text>
+  <text x="353.68" y="383" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="584.88" y="383" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#be2732" xml:space="preserve">yes</text>
+  <text x="700.48" y="383" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Identifikator zahtjeva.</text>
+  <line x1="22" x2="1178" y1="398" y2="398" stroke="#d5dfdd" />
+  <rect x="22" y="398" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="421" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">clientIban</text>
+  <text x="353.68" y="421" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="584.88" y="421" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#be2732" xml:space="preserve">yes</text>
+  <text x="700.48" y="421" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">IBAN klijenta.</text>
+  <line x1="22" x2="1178" y1="436" y2="436" stroke="#d5dfdd" />
+  <text x="30" y="459" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">amount</text>
+  <text x="353.68" y="459" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">number (decimal)</text>
+  <text x="584.88" y="459" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#be2732" xml:space="preserve">yes</text>
+  <text x="700.48" y="459" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Iznos za predodobrenje.</text>
+  <line x1="22" x2="1178" y1="474" y2="474" stroke="#d5dfdd" />
+  <rect x="22" y="474" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="497" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">coinAmount</text>
+  <text x="353.68" y="497" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">number</text>
+  <text x="584.88" y="497" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <line x1="22" x2="1178" y1="512" y2="512" stroke="#d5dfdd" />
+  <text x="30" y="535" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">approvalReferenceNumber</text>
+  <text x="353.68" y="535" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string | null</text>
+  <text x="584.88" y="535" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <line x1="22" x2="1178" y1="550" y2="550" stroke="#d5dfdd" />
+  <rect x="22" y="550" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="573" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">processingDate</text>
+  <text x="353.68" y="573" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string (date)</text>
+  <text x="584.88" y="573" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <line x1="22" x2="1178" y1="588" y2="588" stroke="#d5dfdd" />
+  <text x="30" y="611" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">locationCode</text>
+  <text x="353.68" y="611" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="584.88" y="611" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <line x1="22" x2="1178" y1="626" y2="626" stroke="#d5dfdd" />
+  <rect x="22" y="626" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="649" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">bagBarcode</text>
+  <text x="353.68" y="649" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="584.88" y="649" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <line x1="22" x2="1178" y1="664" y2="664" stroke="#d5dfdd" />
+  <text x="30" y="687" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">user</text>
+  <text x="353.68" y="687" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="584.88" y="687" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <line x1="22" x2="1178" y1="702" y2="702" stroke="#d5dfdd" />
+  <rect x="22" y="702" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="725" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">description</text>
+  <text x="353.68" y="725" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="584.88" y="725" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <line x1="22" x2="1178" y1="740" y2="740" stroke="#d5dfdd" />
+  <text x="30" y="763" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">purposeCode</text>
+  <text x="353.68" y="763" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="584.88" y="763" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <line x1="22" x2="1178" y1="778" y2="778" stroke="#d5dfdd" />
+  <rect x="22" y="778" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="801" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">currencyCode</text>
+  <text x="353.68" y="801" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">integer</text>
+  <text x="584.88" y="801" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#be2732" xml:space="preserve">yes</text>
+  <text x="700.48" y="801" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">ISO numeric currency code. Allowed: [978]</text>
+  <line x1="22" x2="1178" y1="816" y2="816" stroke="#d5dfdd" />
+  <text x="30" y="839" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">credentials</text>
+  <text x="353.68" y="839" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="584.88" y="839" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <text x="700.48" y="839" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Only included in generated request examples. Write only.</text>
+  <line x1="22" x2="1178" y1="854" y2="854" stroke="#d5dfdd" />
+  <rect x="22" y="854" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="877" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">metadata</text>
+  <text x="353.68" y="877" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">object</text>
+  <text x="584.88" y="877" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <line x1="22" x2="1178" y1="892" y2="892" stroke="#d5dfdd" />
+  <text x="30" y="915" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">metadata.channel</text>
+  <text x="353.68" y="915" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="584.88" y="915" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <text x="700.48" y="915" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Allowed: ["barcode","manual"]</text>
+  <line x1="22" x2="1178" y1="930" y2="930" stroke="#d5dfdd" />
+  <rect x="22" y="930" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="953" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">metadata.labels</text>
+  <text x="353.68" y="953" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">array</text>
+  <text x="584.88" y="953" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <line x1="22" x2="1178" y1="968" y2="968" stroke="#d5dfdd" />
+  <text x="30" y="991" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">metadata.labels[]</text>
+  <text x="353.68" y="991" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="584.88" y="991" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">—</text>
+  <line x1="22" x2="1178" y1="1006" y2="1006" stroke="#d5dfdd" />
+</svg>

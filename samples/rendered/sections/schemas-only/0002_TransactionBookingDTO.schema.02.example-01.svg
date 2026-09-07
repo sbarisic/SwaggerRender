@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg width="1200" role="img" height="527" viewBox="0 0 1200 527" xmlns="http://www.w3.org/2000/svg">
+  <title>Schema — TransactionBookingDTO</title>
+  <rect x="1" y="1" width="1198" height="525" fill="#ffffff" stroke="#8b929b" />
+  <rect x="2" y="2" width="1196" height="523" fill="#8b929b" fill-opacity="0.09" />
+  <text x="22" y="41" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Schema</text>
+  <rect x="2" y="56" width="1196" height="46" fill="#ffffff" fill-opacity="0.88" />
+  <line x1="2" x2="1198" y1="102" y2="102" stroke="#d5dfdd" />
+  <text x="22" y="85" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#344150" xml:space="preserve" font-weight="bold">TransactionBookingDTO</text>
+  <text x="22" y="133" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#344150" xml:space="preserve">Podaci za knjiženje transakcije.</text>
+  <text x="22" y="176" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Generated example (representative JSON)</text>
+  <rect x="22" y="191" width="1156" height="306" fill="#303030" rx="4" />
+  <text x="37" y="214" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">{</text>
+  <text x="37" y="234" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "reference": "string",</text>
+  <text x="37" y="254" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "auditId": "string",</text>
+  <text x="37" y="274" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "authorizationCode": "string",</text>
+  <text x="37" y="294" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "specifications": [</text>
+  <text x="37" y="314" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">    {</text>
+  <text x="37" y="334" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">      "denominationType": 0,</text>
+  <text x="37" y="354" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">      "denomination": 0,</text>
+  <text x="37" y="374" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">      "appropriateNumber": 0,</text>
+  <text x="37" y="394" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">      "unappropriateNumber": 0,</text>
+  <text x="37" y="414" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">      "damagedNumber": 0</text>
+  <text x="37" y="434" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">    }</text>
+  <text x="37" y="454" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  ]</text>
+  <text x="37" y="474" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">}</text>
+</svg>

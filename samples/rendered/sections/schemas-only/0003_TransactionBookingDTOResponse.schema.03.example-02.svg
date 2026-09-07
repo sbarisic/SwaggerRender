@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg width="1200" role="img" height="291" viewBox="0 0 1200 291" xmlns="http://www.w3.org/2000/svg">
+  <title>Schema — TransactionBookingDTOResponse</title>
+  <rect x="1" y="1" width="1198" height="289" fill="#ffffff" stroke="#8b929b" />
+  <rect x="2" y="2" width="1196" height="287" fill="#8b929b" fill-opacity="0.09" />
+  <text x="22" y="41" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Schema</text>
+  <rect x="2" y="56" width="1196" height="46" fill="#ffffff" fill-opacity="0.88" />
+  <line x1="2" x2="1198" y1="102" y2="102" stroke="#d5dfdd" />
+  <text x="22" y="85" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#344150" xml:space="preserve" font-weight="bold">TransactionBookingDTOResponse</text>
+  <text x="22" y="140" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Schema example 2</text>
+  <rect x="22" y="155" width="1156" height="106" fill="#303030" rx="4" />
+  <text x="37" y="178" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">{</text>
+  <text x="37" y="198" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "accepted": false,</text>
+  <text x="37" y="218" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "message": "Podaci nisu ispravni."</text>
+  <text x="37" y="238" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">}</text>
+</svg>

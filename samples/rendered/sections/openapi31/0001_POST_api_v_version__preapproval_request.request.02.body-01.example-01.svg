@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg width="1200" role="img" height="517" viewBox="0 0 1200 517" xmlns="http://www.w3.org/2000/svg">
+  <title>POST /api/v{version}/preapproval/request — Request body · required</title>
+  <rect x="1" y="1" width="1198" height="515" fill="#ffffff" stroke="#49cc90" />
+  <rect x="2" y="2" width="1196" height="513" fill="#49cc90" fill-opacity="0.09" />
+  <rect x="22" y="18" width="100" height="34" fill="#49cc90" rx="4" />
+  <text x="34" y="41" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#ffffff" xml:space="preserve" font-weight="bold">POST</text>
+  <text x="138" y="42" font-family="Consolas, 'Liberation Mono', monospace" font-size="20" fill="#283443" xml:space="preserve" font-weight="bold">/api/v{version}/preapproval/request</text>
+  <text x="22" y="85" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#344150" xml:space="preserve" font-weight="bold">BTC / CashExpress preapproval request intake</text>
+  <text x="22" y="131" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#344150" xml:space="preserve" font-weight="bold">Request body · required</text>
+  <text x="22" y="162" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#344150" xml:space="preserve">Receive the preapproval announcement after barcode scan, QR scan, or manual entry.</text>
+  <text x="22" y="208" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#344150" xml:space="preserve" font-weight="bold">application/json</text>
+  <text x="22" y="246" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">barcode — Zahtjev očitan barkodom</text>
+  <rect x="22" y="261" width="1156" height="226" fill="#303030" rx="4" />
+  <text x="37" y="284" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">{</text>
+  <text x="37" y="304" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "id": "REQ-001",</text>
+  <text x="37" y="324" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "clientIban": "HR1210010051863000160",</text>
+  <text x="37" y="344" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "amount": 120.5,</text>
+  <text x="37" y="364" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "processingDate": "2026-07-24",</text>
+  <text x="37" y="384" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "locationCode": "Zagreb",</text>
+  <text x="37" y="404" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "user": "Operater",</text>
+  <text x="37" y="424" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "description": "Zahtjev za predodobrenje",</text>
+  <text x="37" y="444" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">  "currencyCode": 978</text>
+  <text x="37" y="464" font-family="Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c3ecc4" xml:space="preserve">}</text>
+</svg>

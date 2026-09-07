@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg width="1200" role="img" height="470" viewBox="0 0 1200 470" xmlns="http://www.w3.org/2000/svg">
+  <title>POST /api/v{version}/preapproval/request — Response · 400</title>
+  <rect x="1" y="1" width="1198" height="468" fill="#ffffff" stroke="#49cc90" />
+  <rect x="2" y="2" width="1196" height="466" fill="#49cc90" fill-opacity="0.09" />
+  <rect x="22" y="18" width="100" height="34" fill="#49cc90" rx="4" />
+  <text x="34" y="41" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#ffffff" xml:space="preserve" font-weight="bold">POST</text>
+  <text x="138" y="42" font-family="Consolas, 'Liberation Mono', monospace" font-size="20" fill="#283443" xml:space="preserve" font-weight="bold">/api/v{version}/preapproval/request</text>
+  <text x="22" y="85" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#344150" xml:space="preserve" font-weight="bold">BTC / CashExpress preapproval request intake</text>
+  <text x="22" y="131" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#344150" xml:space="preserve" font-weight="bold">Response · 400</text>
+  <text x="22" y="162" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#344150" xml:space="preserve">Neispravni podaci.</text>
+  <text x="22" y="208" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#344150" xml:space="preserve" font-weight="bold">application/problem+json</text>
+  <rect x="2" y="223" width="1196" height="46" fill="#ffffff" fill-opacity="0.88" />
+  <line x1="2" x2="1198" y1="269" y2="269" stroke="#d5dfdd" />
+  <text x="22" y="252" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#344150" xml:space="preserve" font-weight="bold">Body properties</text>
+  <rect x="22" y="284" width="1156" height="38" fill="#e5efed" />
+  <text x="30" y="307" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Property</text>
+  <text x="353.68" y="307" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Type</text>
+  <text x="584.88" y="307" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Required</text>
+  <text x="700.48" y="307" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Description</text>
+  <line x1="22" x2="1178" y1="322" y2="322" stroke="#d5dfdd" />
+  <rect x="22" y="322" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="345" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">$</text>
+  <text x="353.68" y="345" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">object</text>
+  <text x="584.88" y="345" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">—</text>
+  <line x1="22" x2="1178" y1="360" y2="360" stroke="#d5dfdd" />
+  <text x="30" y="383" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">title</text>
+  <text x="353.68" y="383" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">string</text>
+  <text x="584.88" y="383" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <line x1="22" x2="1178" y1="398" y2="398" stroke="#d5dfdd" />
+  <rect x="22" y="398" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="421" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">status</text>
+  <text x="353.68" y="421" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">integer</text>
+  <text x="584.88" y="421" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <text x="700.48" y="421" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Allowed: [400]</text>
+  <line x1="22" x2="1178" y1="436" y2="436" stroke="#d5dfdd" />
+</svg>

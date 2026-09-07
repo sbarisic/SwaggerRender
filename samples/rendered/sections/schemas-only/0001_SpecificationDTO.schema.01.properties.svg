@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg width="1200" role="img" height="514" viewBox="0 0 1200 514" xmlns="http://www.w3.org/2000/svg">
+  <title>Schema — SpecificationDTO</title>
+  <rect x="1" y="1" width="1198" height="512" fill="#ffffff" stroke="#8b929b" />
+  <rect x="2" y="2" width="1196" height="510" fill="#8b929b" fill-opacity="0.09" />
+  <text x="22" y="41" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Schema</text>
+  <rect x="2" y="56" width="1196" height="46" fill="#ffffff" fill-opacity="0.88" />
+  <line x1="2" x2="1198" y1="102" y2="102" stroke="#d5dfdd" />
+  <text x="22" y="85" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#344150" xml:space="preserve" font-weight="bold">SpecificationDTO</text>
+  <text x="22" y="133" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#344150" xml:space="preserve">Specifikacija apoena i broja novčanica.</text>
+  <rect x="2" y="153" width="1196" height="46" fill="#ffffff" fill-opacity="0.88" />
+  <line x1="2" x2="1198" y1="199" y2="199" stroke="#d5dfdd" />
+  <text x="22" y="182" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#344150" xml:space="preserve" font-weight="bold">Properties</text>
+  <rect x="22" y="214" width="1156" height="38" fill="#e5efed" />
+  <text x="30" y="237" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Property</text>
+  <text x="353.68" y="237" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Type</text>
+  <text x="584.88" y="237" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Required</text>
+  <text x="700.48" y="237" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Description</text>
+  <line x1="22" x2="1178" y1="252" y2="252" stroke="#d5dfdd" />
+  <rect x="22" y="252" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="275" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">$</text>
+  <text x="353.68" y="275" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">object</text>
+  <text x="584.88" y="275" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">—</text>
+  <text x="700.48" y="275" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Specifikacija apoena i broja novčanica.</text>
+  <line x1="22" x2="1178" y1="290" y2="290" stroke="#d5dfdd" />
+  <text x="30" y="313" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">denominationType</text>
+  <text x="353.68" y="313" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">number (double)</text>
+  <text x="584.88" y="313" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#be2732" xml:space="preserve">yes</text>
+  <text x="700.48" y="313" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Vrsta apoena.</text>
+  <line x1="22" x2="1178" y1="328" y2="328" stroke="#d5dfdd" />
+  <rect x="22" y="328" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="351" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">denomination</text>
+  <text x="353.68" y="351" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">number (double)</text>
+  <text x="584.88" y="351" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#be2732" xml:space="preserve">yes</text>
+  <text x="700.48" y="351" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Vrijednost apoena.</text>
+  <line x1="22" x2="1178" y1="366" y2="366" stroke="#d5dfdd" />
+  <text x="30" y="389" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">appropriateNumber</text>
+  <text x="353.68" y="389" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">number (double)</text>
+  <text x="584.88" y="389" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <line x1="22" x2="1178" y1="404" y2="404" stroke="#d5dfdd" />
+  <rect x="22" y="404" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="427" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">unappropriateNumber</text>
+  <text x="353.68" y="427" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">number (double)</text>
+  <text x="584.88" y="427" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <line x1="22" x2="1178" y1="442" y2="442" stroke="#d5dfdd" />
+  <text x="30" y="465" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">damagedNumber</text>
+  <text x="353.68" y="465" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">number (double)</text>
+  <text x="584.88" y="465" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">no</text>
+  <line x1="22" x2="1178" y1="480" y2="480" stroke="#d5dfdd" />
+</svg>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg width="1200" role="img" height="314" viewBox="0 0 1200 314" xmlns="http://www.w3.org/2000/svg">
+  <title>GET /api/v{version}/preapproval/requests/{requestId}/validation-history/with-a-deliberately-long-path-segment-to-demonstrate-wrapping — Responses · overview</title>
+  <rect x="1" y="1" width="1198" height="312" fill="#ffffff" stroke="#61affe" />
+  <rect x="2" y="2" width="1196" height="310" fill="#61affe" fill-opacity="0.09" />
+  <rect x="22" y="18" width="100" height="34" fill="#61affe" rx="4" />
+  <text x="34" y="41" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#ffffff" xml:space="preserve" font-weight="bold">GET</text>
+  <text x="138" y="42" font-family="Consolas, 'Liberation Mono', monospace" font-size="20" fill="#283443" xml:space="preserve" font-weight="bold">/api/v{version}/preapproval/requests/{requestId}/validation-history/with-a-deliber</text>
+  <text x="138" y="70" font-family="Consolas, 'Liberation Mono', monospace" font-size="20" fill="#283443" xml:space="preserve" font-weight="bold">ately-long-path-segment-to-demonstrate-wrapping</text>
+  <text x="22" y="105" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#344150" xml:space="preserve" font-weight="bold">Povijest validacije</text>
+  <text x="22" y="151" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#344150" xml:space="preserve" font-weight="bold">Responses · overview</text>
+  <rect x="22" y="166" width="1156" height="38" fill="#e5efed" />
+  <text x="30" y="189" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Code</text>
+  <text x="191.84" y="189" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Description</text>
+  <line x1="22" x2="1178" y1="204" y2="204" stroke="#d5dfdd" />
+  <rect x="22" y="204" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="227" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">200</text>
+  <text x="191.84" y="227" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Povijest zahtjeva.</text>
+  <line x1="22" x2="1178" y1="242" y2="242" stroke="#d5dfdd" />
+  <text x="30" y="265" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">404</text>
+  <text x="191.84" y="265" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Zahtjev nije pronađen.</text>
+  <line x1="22" x2="1178" y1="280" y2="280" stroke="#d5dfdd" />
+</svg>

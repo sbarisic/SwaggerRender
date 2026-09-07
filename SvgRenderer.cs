@@ -23,10 +23,7 @@ internal sealed class SvgRenderer(SchemaDocumentation schemas, int width)
     {
         var canvas = new SvgCanvas(width, endpoint, "Request");
         canvas.Paragraph(endpoint.Description);
-        canvas.Section("Parameters");
-        if (endpoint.Parameters.Count == 0) canvas.Paragraph("No parameters.");
-        else canvas.Table(["Name", "Type", "In", "Required", "Description"], [0.22, 0.18, 0.10, 0.10, 0.40],
-            endpoint.Parameters.Select(p => new[] { p.Name, p.Type, p.Location, p.Required, p.Description }));
+        Parameters(canvas, endpoint.Parameters);
         if (endpoint.Body is null)
         {
             canvas.Section("Request body");
@@ -76,18 +73,28 @@ internal sealed class SvgRenderer(SchemaDocumentation schemas, int width)
 
     private void Examples(SvgCanvas canvas, MediaBody body, bool? request)
     {
-        foreach (var example in schemas.Examples(body, request))
-        {
-            canvas.Label(example.Name, small: true);
-            canvas.Code(example.Value?.ToJsonString(new JsonSerializerOptions
-            {
-                WriteIndented = true,
-                Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
-            }) ?? "null");
-        }
+        foreach (var example in schemas.Examples(body, request)) Example(canvas, example);
     }
 
-    private static void Properties(SvgCanvas canvas, IEnumerable<Field> fields) =>
+    internal static void Example(SvgCanvas canvas, BodyExample example)
+    {
+        canvas.Label(example.Name, small: true);
+        canvas.Code(example.Value?.ToJsonString(new JsonSerializerOptions
+        {
+            WriteIndented = true,
+            Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+        }) ?? "null");
+    }
+
+    internal static void Parameters(SvgCanvas canvas, List<Field> parameters)
+    {
+        canvas.Section("Parameters");
+        if (parameters.Count == 0) canvas.Paragraph("No parameters.");
+        else canvas.Table(["Name", "Type", "In", "Required", "Description"], [0.22, 0.18, 0.10, 0.10, 0.40],
+            parameters.Select(p => new[] { p.Name, p.Type, p.Location, p.Required, p.Description }));
+    }
+
+    internal static void Properties(SvgCanvas canvas, IEnumerable<Field> fields) =>
         canvas.Table(["Property", "Type", "Required", "Description"], [0.28, 0.20, 0.10, 0.42],
             fields.Select(field => new[] { field.Name, field.Type, field.Required, field.Description }));
 }

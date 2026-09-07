@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg width="1200" role="img" height="332" viewBox="0 0 1200 332" xmlns="http://www.w3.org/2000/svg">
+  <title>POST /api/v{version}/preapproval/request — Responses · overview</title>
+  <rect x="1" y="1" width="1198" height="330" fill="#ffffff" stroke="#49cc90" />
+  <rect x="2" y="2" width="1196" height="328" fill="#49cc90" fill-opacity="0.09" />
+  <rect x="22" y="18" width="100" height="34" fill="#49cc90" rx="4" />
+  <text x="34" y="41" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#ffffff" xml:space="preserve" font-weight="bold">POST</text>
+  <text x="138" y="42" font-family="Consolas, 'Liberation Mono', monospace" font-size="20" fill="#283443" xml:space="preserve" font-weight="bold">/api/v{version}/preapproval/request</text>
+  <text x="22" y="85" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#344150" xml:space="preserve" font-weight="bold">BTC / CashExpress preapproval request intake</text>
+  <text x="22" y="131" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#344150" xml:space="preserve" font-weight="bold">Responses · overview</text>
+  <rect x="22" y="146" width="1156" height="38" fill="#e5efed" />
+  <text x="30" y="169" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Code</text>
+  <text x="191.84" y="169" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve" font-weight="bold">Description</text>
+  <line x1="22" x2="1178" y1="184" y2="184" stroke="#d5dfdd" />
+  <rect x="22" y="184" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="207" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">200</text>
+  <text x="191.84" y="207" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Uspješno zaprimljen zahtjev.</text>
+  <line x1="22" x2="1178" y1="222" y2="222" stroke="#d5dfdd" />
+  <text x="30" y="245" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">400</text>
+  <text x="191.84" y="245" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Neispravni podaci.</text>
+  <line x1="22" x2="1178" y1="260" y2="260" stroke="#d5dfdd" />
+  <rect x="22" y="260" width="1156" height="38" fill="#ffffff" fill-opacity="0.62" />
+  <text x="30" y="283" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">default</text>
+  <text x="191.84" y="283" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#344150" xml:space="preserve">Neočekivana pogreška.</text>
+  <line x1="22" x2="1178" y1="298" y2="298" stroke="#d5dfdd" />
+</svg>
